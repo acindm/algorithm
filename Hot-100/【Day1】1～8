@@ -1,0 +1,19 @@
+笔者较熟悉python，但因转方向需求会逐步过渡到使用js语言
+【1-两数之和】
+https://leetcode.cn/problems/two-sum/description/?envType=study-plan-v2&envId=top-100-liked
+使用爆破的时间复杂度是n^2，空间复杂度是1。用哈希表的做法，空间换时间，时间复杂度和空间复杂度都是n。
+
+var twoSum = function(nums, target){
+    let map = new Map();
+    for(let i = 0, len = nums.length; i < len; i++){
+        if (map.has(target - nums[i])){
+            return [map.get(target - nums[i]), i];
+        }
+        else{
+            map.set(nums[i], i)
+        }
+    }
+    return [];
+};
+
+【49-字母异位词分组】
