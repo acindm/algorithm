@@ -5,7 +5,7 @@ https://leetcode.cn/problems/two-sum/description/?envType=study-plan-v2&envId=to
 
 var twoSum = function(nums, target){
     let map = new Map();
-    for(let i = 0, len = nums.length; i < len; i++){
+    for(let i = 0; i < nums.length; i++){
         if (map.has(target - nums[i])){
             return [map.get(target - nums[i]), i];
         }
@@ -17,3 +17,17 @@ var twoSum = function(nums, target){
 };
 
 【49-字母异位词分组】
+var groupAnagrams = function(strs){
+    let map = new Map()
+    for (let i = 0; i < strs.length; i++){
+    let str = strs[i].split('').sort().join()
+    if(map.has(str)){
+        let temp = map.get(str)
+        temp.push(strs[i])
+        map.set(str, temp)
+    }else{
+        map.set(str, [strs[i]])
+    }
+}
+return [...map.values()]
+};
