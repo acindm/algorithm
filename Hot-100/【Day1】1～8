@@ -61,3 +61,18 @@ var longestConsecutive = function(nums) {
 
 【双指针】
 【183-移动零】
+
+
+【链表】
+【160-相交链表】
+var getIntersectionNode = function (headA, headB) {
+    if (!headA || !headB) return null;
+
+    let pA = headA,
+        pB = headB;
+    while (pA !== pB) {
+        pA = pA === null ? headB : pA.next;
+        pB = pB === null ? headA : pB.next;
+    }
+    return pA;
+};
