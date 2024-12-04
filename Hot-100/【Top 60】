@@ -1,0 +1,20 @@
+// 【无重复字符的最长字串】【中】
+// -输出最长子串长度
+
+var lengthOfLongestSubstring = function(s){
+    let i = 0; res = 0; n = 0
+    for(let j = 0; j<s.length; j++){
+        n = s.slice(i,j).indexOf(s[j])
+        if (n==-1){
+            res = Math.max(res, j+1-i)
+        }else{
+            i += n + 1
+        }
+    }
+    return res
+}
+
+// -输出最长字串
+var lengthOfLongestSubstring = function(s){
+
+}
