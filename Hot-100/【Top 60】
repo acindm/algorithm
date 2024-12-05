@@ -1,4 +1,4 @@
-// 【无重复字符的最长字串】【中】
+// 【1】【无重复字符的最长字串】【中】
 // -输出最长子串长度
 
 var lengthOfLongestSubstring = function(s){
@@ -16,5 +16,34 @@ var lengthOfLongestSubstring = function(s){
 
 // -输出最长字串
 var lengthOfLongestSubstring = function(s){
-
+    let map = new map()
+    let i = 0, res = 0, start = 0
+    for(let j=0;j<s.length;j++){
+        if (Map.has(s[j]) && map.get(s[j]) >=i ){
+            i = map.get(s[j]) + 1
+        }
+        map.set(s[j], j)
+        if (j-i+1>res){
+            res = j-i+1
+            start=i
+        }
+    }
+    console.log(s.slice(start, start+res))
+    return res
 }
+
+// 【2】【合并两个有序数组】【简单】
+var merge = function(nums1, m, nums2, n) {
+    let i =m-1, j=n-1, k=m+n-1
+    while (i>=0 && j>=0){
+        if (nums1[i] < nums2[j]){
+            nums1[k] = nums2[j--]
+        }else{
+            nums1[k] = nums1[i--]
+        }
+        k--
+    }
+    while(i>=0) nums1[k--] = nums1[i--]
+    while(j>=0) nums1[k--] = nums2[j--]
+}
+
